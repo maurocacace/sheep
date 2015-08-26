@@ -3,6 +3,12 @@
 #include "AppFactory.h"
 #include "ModulesApp.h"
 
+#include "ThermoTimeDerivative.h"
+#include "ThermalConduction.h"
+#include "StaticLoad.h"
+
+#include "SheepMaterial.h"
+
 template<>
 InputParameters validParams<SheepApp>()
 {
@@ -42,6 +48,13 @@ extern "C" void SheepApp__registerObjects(Factory & factory) { SheepApp::registe
 void
 SheepApp::registerObjects(Factory & factory)
 {
+  // Kernels
+  registerKernel(ThermoTimeDerivative);
+  registerKernel(ThermalConduction);
+  registerKernel(StaticLoad);
+
+  // Materials
+  registerKernel(SheepMaterial);
 }
 
 // External entry point for dynamic syntax association
