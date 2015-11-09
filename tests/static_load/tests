@@ -1,7 +1,0 @@
-[Tests]
-  [./Static_load]
-    type = 'Exodiff'
-    input = 'static_load.i'
-    exodiff = 'static_load_out.e'
-  [../]
-[]
